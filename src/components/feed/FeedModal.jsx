@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { PHOTOS_GET } from "../../api";
+import { PHOTO_GET } from "../../api";
 import { useFetch } from "../../hooks/useFetch";
 import { Error } from "../Error";
 import { Loading } from "../Loading";
@@ -11,7 +11,7 @@ export const FeedModal = ({ photo, setModalPhoto }) => {
 
   useEffect(() => {
     const fetchPhoto = async () => {
-      const { url, options } = PHOTOS_GET(photo.id);
+      const { url, options } = PHOTO_GET(photo.id);
       await request(url, options);
     };
 

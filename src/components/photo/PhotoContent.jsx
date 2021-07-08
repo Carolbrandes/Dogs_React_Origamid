@@ -4,33 +4,33 @@ import { PhotoComments } from "./PhotoComments";
 import styles from "./PhotoContent.module.css";
 
 export const PhotoContent = ({ data }) => {
-  console.log(data);
+  const { photo, comments } = data;
 
   return (
     <div className={styles.photo}>
       <div className={styles.img}>
-        <img src={data[0].src} alt={data[0].title} />
+        <img src={photo.src} alt={photo.title} />
       </div>
 
       <div className={styles.details}>
         <div>
           <p className={styles.author}>
-            <Link to={`/perfil/${data[0].author}`}>@{data[0].author}</Link>
-            <span className={styles.visualizacoes}>{data[0].acessos}</span>
+            <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
+            <span className={styles.visualizacoes}>{photo.acessos}</span>
           </p>
 
           <h1 className="title">
-            <Link to={`/foto/${data[0].id}`}>{data[0].title}</Link>
+            <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
           </h1>
 
           <ul className={styles.attributes}>
-            <li>{data[0].peso} kg</li>
-            <li>{data[0].idade} anos</li>
+            <li>{photo.peso} kg</li>
+            <li>{photo.idade} anos</li>
           </ul>
         </div>
       </div>
 
-      <PhotoComments id={data[0].id} />
+      <PhotoComments id={photo.id} comments={comments} />
     </div>
   );
 };
