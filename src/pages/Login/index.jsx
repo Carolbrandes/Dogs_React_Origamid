@@ -5,6 +5,7 @@ import { LoginCreate } from "./LoginCreate";
 import { LoginPasswordLost } from "./LoginPasswordLost";
 import { LoginPasswordReset } from "./LoginPasswordReset";
 import { UserContext } from "../../userContext";
+import { NotFound } from "../NotFound";
 
 import styles from "./Login.module.css";
 
@@ -21,6 +22,7 @@ export const Login = () => {
           <Route path="cadastrar" element={<LoginCreate />} />
           <Route path="recuperar-senha" element={<LoginPasswordLost />} />
           <Route path="resetar-senha" element={<LoginPasswordReset />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </section>
