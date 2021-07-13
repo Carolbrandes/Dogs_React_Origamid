@@ -3,7 +3,7 @@ import { UserContext } from "../../userContext";
 import { PhotoCommentsForm } from "./PhotoCommentsForm";
 import styles from "./PhotoComments.module.css";
 
-export const PhotoComments = ({ id, commentsList }) => {
+export const PhotoComments = ({ id, commentsList, single }) => {
   const { login } = useContext(UserContext);
   const [comments, setComments] = useState(() => commentsList);
   const commentSection = useRef(null);
@@ -14,7 +14,10 @@ export const PhotoComments = ({ id, commentsList }) => {
 
   return (
     <>
-      <ul ref={commentSection} className={styles.comments}>
+      <ul
+        ref={commentSection}
+        className={`${styles.comments} ${single ? styles.single : ""}`}
+      >
         {comments.map((comment) => (
           <li key={comment.comment_ID}>
             <b>{comment.comment_author}:</b>
@@ -23,7 +26,7 @@ export const PhotoComments = ({ id, commentsList }) => {
         ))}
       </ul>
 
-      {login && <PhotoCommentsForm id={id} setComments={setComments} />}
+      {login && <PhotoCommentsForm single id={id} setComments={setComments} />}
     </>
   );
 };

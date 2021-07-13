@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
 export const useFetch = () => {
   const [data, setData] = useState(null);
@@ -24,7 +24,7 @@ export const useFetch = () => {
       setLoading(false);
       return { response, json };
     }
-  });
+  }, []);
 
   return {
     data,
