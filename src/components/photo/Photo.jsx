@@ -5,6 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { Loading } from "../Loading";
 import { PhotoContent } from "./PhotoContent";
 import { Error } from "../Error";
+import { Head } from "../Head";
 
 export const Photo = () => {
   const { id } = useParams();
@@ -20,6 +21,7 @@ export const Photo = () => {
   if (data) {
     return (
       <section className="mainContainer container">
+        <Head title={data.photo.title} />
         <PhotoContent single data={data} />
       </section>
     );

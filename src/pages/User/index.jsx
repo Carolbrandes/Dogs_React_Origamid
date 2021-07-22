@@ -6,11 +6,13 @@ import { UserPhotoPost } from "./UserPhotoPost";
 import { UserStatistic } from "./UserStatistic";
 import { UserContext } from "../../userContext";
 import { NotFound } from "../NotFound";
+import { Head } from "../../components/Head";
 
 export const User = () => {
   const { data } = useContext(UserContext);
   return (
     <section className="container">
+      <Head title="Minha Conta" />
       <UserHeader />
 
       <Routes>

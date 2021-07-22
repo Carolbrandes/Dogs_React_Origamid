@@ -5,6 +5,7 @@ import { Error } from "../../components/Error";
 import { useForm } from "../../hooks/useForm";
 import { useFetch } from "../../hooks/useFetch";
 import { PASSWORD_LOST } from "../../api";
+import { Head } from "../../components/Head";
 
 export const LoginPasswordLost = () => {
   const email = useForm();
@@ -24,7 +25,8 @@ export const LoginPasswordLost = () => {
   };
 
   return (
-    <section>
+    <section className="animeLeft">
+      <Head title="Recupere sua senha" />
       <h1 className="title">Perdeu a senha?</h1>
 
       {data ? (

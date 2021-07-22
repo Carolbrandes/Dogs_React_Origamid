@@ -5,6 +5,7 @@ import { Input } from "../../components/form/Input";
 import { Button } from "../../components/form/Button";
 import { UserContext } from "../../userContext";
 import { Error } from "../../components/Error";
+import { Head } from "../../components/Head";
 
 import styles from "./LoginForm.module.css";
 import stylesBtn from "../../components/form/Button.module.css";
@@ -24,6 +25,7 @@ export const LoginForm = () => {
 
   return (
     <section className="animeLeft">
+      <Head title="Login" />
       <h1 className="title">Login</h1>
 
       <form className={styles.form} onSubmit={handleSubmit}>
@@ -35,7 +37,7 @@ export const LoginForm = () => {
           <Button>Entrar</Button>
         )}
 
-        <Error error={error} />
+        <Error error={error && "Dados incorretos"} />
       </form>
 
       <Link className={styles.esqueceuSenha} to="/login/recuperar-senha">
